@@ -24,6 +24,11 @@ import java.util.List;
 import static android.R.attr.data;
 import static android.R.attr.value;
 
+/**
+ * extends the array adapter class so the user will be able to see more things in the listview entry item
+ * adds multiple textviews and buttons
+ */
+
 public class CustomAdapter extends ArrayAdapter<CounterListItem> {
     private List<CounterListItem> entries;
     private Context context;
@@ -46,6 +51,15 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
         return entries.get(position);
     }
 
+
+    /**
+     * inflates the view so that their are 4 textviews and 4 buttons that the user can see,
+     * adds a increase ,decrease ,reset and delete button
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     public View getView(final int position, View convertView, final ViewGroup parent){
         ItemHolder holder = new ItemHolder();
 
@@ -58,12 +72,14 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
 
             final CounterListItem clr = entries.get(position);
 
+        //find the textviews in the xml file and gets the id
         TextView counterNameView = (TextView)convertView.findViewById(R.id.TextView);
         TextView counterDateView = (TextView)convertView.findViewById(R.id.TextView2);
         TextView initValView = (TextView)convertView.findViewById(R.id.TextView3);
         final TextView curValView = (TextView)convertView.findViewById(R.id.TextView4);
         TextView Comment1View = (TextView)convertView.findViewById(R.id.TextView5);
 
+        //gets and sets the necessary information for the textview within the listview entry
         if (counterNameView!= null) counterNameView.setText(clr.getCounterName());
 
 
@@ -79,6 +95,7 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
         //onclicklistener for incbutton which will increase the current value by 1 on the clicked counter
        Button incButton = (Button)convertView.findViewById(R.id.incButton);
 
+        //lets the item in listview be clickable and if clicked will send the user to the edit counter activity
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -39,7 +39,10 @@ import com.google.gson.reflect.TypeToken;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
-
+/**
+ * this is the main activity class of the app, user will be able to enter counter information on this page and view their inputted information
+ * in the listview which will show their entries
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String FILENAME = "file.sav";
@@ -53,17 +56,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //popList();
 
+        //get the id of the edittext boxes which the user will input their data
         final EditText edit1 = (EditText)findViewById(R.id.editText);
         // final EditText edit2 = (EditText)findViewById(R.id.editText2);
         final EditText edit3 = (EditText)findViewById(R.id.editText3);
         final EditText edit4 = (EditText)findViewById(R.id.editText4);
         final EditText edit5 = (EditText)findViewById(R.id.editText5);
 
-        //ListView lv = (ListView)findViewById(R.id.CounterList1);
-        EnterButton = (Button)findViewById(R.id.button1);
 
+        EnterButton = (Button)findViewById(R.id.button1);
+//onclick listener for the enter button which also error checks to make sure that no blank strings are entered in the spaces although in countname a blank string will go through otherwise
+        //for curval and initval you cannot enter a blank string since that isnt a number format
         EnterButton.setOnClickListener(new View.OnClickListener(){
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -109,6 +113,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * when the editcounter activity is done, we will call this method to get the intent from editcounter which contains the edited info inputted by the user , and adds it to the counterlist
+     * at the specified position with the edited data
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //cAdpt.onActivityResult(requestCode,resultCode,data);
@@ -132,13 +145,13 @@ public class MainActivity extends AppCompatActivity {
             Integer position = (editIntent.getIntExtra("pos1", 2));
 
             counterList.set(position, new CounterListItem(counterName2, today2, initVal2, curVal2, comment2));
-            cAdpt.notifyDataSetChanged();
+            cAdpt.notifyDataSetChanged(); // notify the adapter that data has changed
 
             saveInFile();
         }
     }
 
-// next 3 methods taken from lonelytwitter code
+// next 3 methods taken from lonelytwitter code : https://github.com/joshua2ua/lonelyTwitter/blob/master/app/src/main/java/ca/ualberta/cs/lonelytwitter/LonelyTwitterActivity.java
     @Override
     protected void onStart() {
         super.onStart();
@@ -150,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(cAdpt);
     }
 
-
+///taken from the lonely twitter code from lab
     private void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);
@@ -168,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException();
         }
     }
-
+///taken from lonely twitter code look up for link
     private void saveInFile() {
         try {
             FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);

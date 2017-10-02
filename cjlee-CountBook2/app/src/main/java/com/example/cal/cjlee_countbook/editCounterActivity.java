@@ -13,6 +13,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * edit counter activity which will allow the user to edit the counter that they clicked and see what current information it has
+ * will send back an intent that will be read by main activity
+ */
 public class editCounterActivity extends AppCompatActivity {
 
     @Override
@@ -75,16 +79,17 @@ public class editCounterActivity extends AppCompatActivity {
 
                 //get the necessary information for the counter from the user
                 String countName = nameEt.getText().toString();
-                Log.d("et name:",countName);
-                //String countDate = edit2.getText().toString()
+
+                //get the init val ,cur val and date that the string was edited
                 String initVal2=initEt.getText().toString();
                 String curVal2 = curEt.getText().toString();
                 String comment2 = commentEt.getText().toString();
+
                 DateFormat counterDate = new SimpleDateFormat("yyyy-MM-dd");
                 Calendar date = Calendar.getInstance();
                 String today= counterDate.format(date.getTime());
 
-
+                // send the intent back with the current information
                 Intent intent2 = new Intent();
                 intent2.putExtra("cName",countName);
                 intent2.putExtra("counterDate", today);

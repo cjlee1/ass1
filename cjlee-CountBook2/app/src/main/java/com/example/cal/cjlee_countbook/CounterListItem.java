@@ -9,6 +9,8 @@ import java.util.Date;
  * Created by Cal on 9/23/2017.
  */
 
+/**
+ */
 public class CounterListItem {
 
 
