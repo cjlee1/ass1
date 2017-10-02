@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+
+    <Button
+        android:id="@+id/resButton"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/decButton"
+        android:layout_alignParentTop="true"
+
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/textView9"
+        android:layout_toStartOf="@+id/textView9"
+        android:text="Reset"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Initial :"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/TextView3"
+        android:layout_alignBottom="@+id/TextView3"
+        android:layout_toRightOf="@+id/resButton"
+        android:layout_toEndOf="@+id/resButton" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/TextView4"
+        android:layout_alignBottom="@+id/TextView4"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:text="Current :"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView1"
+        android:layout_marginLeft="71dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="11dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/TextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:text="comment"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/TextView2"
+        android:layout_alignTop="@+id/TextView" />
+
+    <TextView
+        android:id="@+id/TextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="currentval"
+
+        android:layout_below="@+id/TextView"
+        android:layout_alignLeft="@+id/TextView"
+        android:layout_alignStart="@+id/TextView"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/TextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="initval"
+        android:layout_below="@+id/TextView5"
+        android:layout_toRightOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:layout_below="@+id/TextView"
+        android:layout_alignLeft="@+id/TextView"
+        android:layout_alignStart="@+id/TextView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/TextView2"
+        android:layout_alignTop="@+id/TextView"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_toLeftOf="@+id/TextView2"
+        android:layout_toStartOf="@+id/TextView2"
+        android:text="Name :"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/textView6"
+        android:text="Date: "
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBaseline="@+id/TextView5"
+        android:layout_alignBottom="@+id/TextView5"
+        android:layout_toStartOf="@+id/TextView5"
+        android:text="Comment :"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/decButton"
+        android:layout_width="30dp"
+
+        android:layout_height="30dp"
+
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignLeft="@+id/incButton"
+        android:layout_alignStart="@+id/incButton"
+        android:text="---"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/incButton"
+        android:layout_width="30dp"
+
+        android:layout_height="30dp"
+        android:text="+"
+
+        android:textSize="10sp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/resButton"
+        android:layout_toStartOf="@+id/resButton" />
+
+    <Button
+        android:id="@+id/delButton"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/decButton"
+        android:layout_below="@+id/resButton"
+        android:layout_toEndOf="@+id/decButton"
+        android:layout_toRightOf="@+id/decButton"
+        android:text="Delete"
+        android:textSize="7sp" />
+</RelativeLayout>
