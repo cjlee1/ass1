@@ -43,9 +43,7 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
     public int getCount(){
         return entries.size();
     }
-    public long getItemId(int position){
-        return entries.get(position).hashCode();
-    }
+
 
     public CounterListItem getItem(int position){
         return entries.get(position);
@@ -55,14 +53,14 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
     /**
      * inflates the view so that their are 4 textviews and 4 buttons that the user can see,
      * adds a increase ,decrease ,reset and delete button
+     * also looked at this for tips and help : https://developer.android.com/samples/RecyclerView/src/com.example.android.recyclerview/CustomAdapter.html
+     * and this https://www.journaldev.com/10416/android-listview-with-custom-adapter-example-tutorial
      * @param position
      * @param convertView
      * @param parent
      * @return
      */
     public View getView(final int position, View convertView, final ViewGroup parent){
-        ItemHolder holder = new ItemHolder();
-
         if(convertView== null){
            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
            convertView = inflater.inflate(R.layout.img_row_layout, parent, false);
@@ -135,7 +133,7 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
             public void onClick(View view) {
                 CounterListItem clr = entries.get(position);
                 int curVal = Integer.parseInt(String.valueOf(clr.getCurVal()));
-                if (curVal==0) return;
+                if (curVal==0) return; // wont get lower than 0 since it is non negative numbers
                 curVal= curVal-1; // subtract the current value by 1
                 clr.setCurVal(curVal); // set the current value to new value
                 curValView.setText(clr.getCurVal().toString());
@@ -178,15 +176,6 @@ public class CustomAdapter extends ArrayAdapter<CounterListItem> {
     return convertView;
     }
 
-
-    private static class ItemHolder{
-        public TextView counterNameView;
-        public TextView counterDateView;
-        public TextView initValView;
-        public TextView curValView;
-        public TextView Comment1View;
-
-    }
 
 
 }
