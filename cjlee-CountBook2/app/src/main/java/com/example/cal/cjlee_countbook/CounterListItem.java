@@ -10,6 +10,7 @@ import java.util.Date;
  */
 
 /**
+ * a counter list object that contains the necessary information that is wanted , and has some methods that will get certain stuff within the counterlistitem
  */
 public class CounterListItem {
 
